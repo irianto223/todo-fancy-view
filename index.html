@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  </head>
+  <body>
+  <div id="index">
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center"><i class="material-icons">playlist_add_check</i></a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="#" v-on:click='logout()'>Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <br>
+      <a href="addtask.html" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">add</i></a>
+      <br><br>
+      <table class="highlight">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Description</th>
+            <th>Is Done</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for='task in tasks'>
+            <td>{{ task.task }}</td>
+            <td>{{ task.description }}</td>
+            <td>
+              <p>
+                <input type="checkbox" class="filled-in" v-bind:id="task._id" v-model='task.isDone' v-on:change='switchStatus(task.user, task._id)'>
+                <label v-bind:for="task._id">{{ task.isDone }}</label>
+              </p>
+            </td>
+            <td>
+              <a class="btn-floating btn-small waves-effect waves-light red">
+                <i class="large material-icons">mode_edit</i>
+              </a>
+              <a class="btn-floating btn-small waves-effect waves-light red" v-on:click='deleteTask(task.user, task._id)'>
+                <i class="large material-icons">highlight_off</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="lib/index.js"></script>
+  </div>
+  </body>
+</html>

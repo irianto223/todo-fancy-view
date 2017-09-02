@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  </head>
+  <body>
+  <div id="addtask">
+
+    <nav>
+      <div class="nav-wrapper">
+        <!-- <a href="#" class="brand-logo center"><i class="material-icons">all_inclusive</i></a> -->
+        <ul id="nav-mobile" class="left">
+          <li><a href="index.html">Back</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right">
+          <li><a href="#" v-on:click='logout()'>Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="input-field col s12">
+          <input v-model='task' type="text" class="validate" name="task">
+          <label for="task">New Task</label>
+        </div>
+        <div class="input-field col s12">
+          <textarea name="description" class="materialize-textarea" v-model='description'></textarea>
+          <label for="description">Description</label>
+          <button class="btn waves-effect waves-light" type="button" name="action" v-on:click='addtask()'>Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="lib/addtask.js"></script>
+
+  </div>
+  </body>
+</html>
